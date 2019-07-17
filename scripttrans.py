@@ -1,5 +1,5 @@
 print("""
-Simple Google Translate - Run from Command Prompt
+Simple Google Translate - Adrian Lee
 
 To use, simply run in command prompt. The program will ask for input. Input each
 of your desired strings, pressing enter after each string. Input blank once you
@@ -13,6 +13,7 @@ from googletrans import Translator
 import os
 
 os.system("chcp 950")
+#This line is used so the command prompt can dispaly chinese characters.
 translator = Translator()
 
 def ask_input():
@@ -27,9 +28,16 @@ def ask_input():
     return text
 
 def ask_config(text):
-    end = input("Destination Language (Two Letter Code): ")
-    translations = translator.translate(text, dest = end)
-    return translations
+    inputting = True
+    while inputting == True:
+        try:
+            end = input("Destination Language (Two Letter Code): ")
+            translations = translator.translate(text, dest = end)
+        except:
+            print("Invalid destination language, try again.")
+            continue
+        else:
+            return translations
 
 def trans(translations):
     print("\n")
@@ -42,10 +50,11 @@ def run():
 
         text = ask_input()
         translations = ask_config(text)
+        print("Working...")
         trans(translations)
 
         print("\n")
-        ask = input("Continue? (Y/N) ")
+        ask = input("Continue? (Y for yes, any other key for no.) ")
         if ask == "Y":
             run()
         else:
