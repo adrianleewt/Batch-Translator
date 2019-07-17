@@ -1,5 +1,5 @@
 print("""
-Simple Google Translate - Run from Command Prompt
+Simple Google Translate - Adrian Lee
 
 To use, simply run in command prompt. The program will ask for input. Input each
 of your desired strings, pressing enter after each string. Input blank once you
@@ -13,23 +13,51 @@ from googletrans import Translator
 import os
 
 os.system("chcp 950")
-
+#This line is used so the command prompt can dispaly chinese characters.
 translator = Translator()
-text = []
 
-inputting = True
+def ask_input():
+    inputting = True
+    text = []
+    while inputting == True:
+        temp = input("Input a string: ")
+        if temp == "":
+            inputting == False
+            break
+        text.append(temp)
+    return text
 
-while inputting == True:
-    temp = input("Input a string: ")
-    if temp == "":
-        inputting == False
-        break
-    text.append(temp)
+def ask_config(text):
+    inputting = True
+    while inputting == True:
+        try:
+            end = input("Destination Language (Two Letter Code): ")
+            translations = translator.translate(text, dest = end)
+        except:
+            print("Invalid destination language, try again.")
+            continue
+        else:
+            return translations
 
-end = input("Destination Language (Two Letter Code): ")
-translations = translator.translate(text, dest = end)
+def trans(translations):
+    print("\n")
+    for translation in translations:
+        print(translation.origin, ' -> ', translation.text)
 
-print("\n")
+def run():
+    active = True
+    while active == True:
 
-for translation in translations:
-    print(translation.origin, ' -> ', translation.text)
+        text = ask_input()
+        translations = ask_config(text)
+        print("Working...")
+        trans(translations)
+
+        print("\n")
+        ask = input("Continue? (Y for yes, any other key for no.) ")
+        if ask == "Y":
+            run()
+        else:
+            active = False
+
+run()
