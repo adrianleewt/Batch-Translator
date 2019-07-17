@@ -3,8 +3,8 @@ Batch Translate - Adrian Lee
 
 To use, simply run in command prompt. The program will ask for input. Input each
 of your desired strings, pressing enter after each string. Input blank once you
-have completed data entry. Input your desired language destination in the two
-letter code.
+have completed data entry. Input your desired language destination in the
+code form (eg. zh-CN, en, fr).
 
 """)
 
