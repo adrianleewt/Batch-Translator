@@ -13,23 +13,41 @@ from googletrans import Translator
 import os
 
 os.system("chcp 950")
-
 translator = Translator()
-text = []
+active = True
 
-inputting = True
+def ask_input():
+    inputting = True
+    text = []
+    while inputting == True:
+        temp = input("Input a string: ")
+        if temp == "":
+            inputting == False
+            break
+        text.append(temp)
+    return text
 
-while inputting == True:
-    temp = input("Input a string: ")
-    if temp == "":
-        inputting == False
-        break
-    text.append(temp)
+def ask_config():
+    end = input("Destination Language (Two Letter Code): ")
+    translations = translator.translate(text, dest = end)
+    return translations
 
-end = input("Destination Language (Two Letter Code): ")
-translations = translator.translate(text, dest = end)
+def trans(config):
+    print("\n")
+    for config in translations:
+        print(config.origin, ' -> ', config.text)
 
-print("\n")
+def run():
+    while active == True:
 
-for translation in translations:
-    print(translation.origin, ' -> ', translation.text)
+        data = ask_input()
+        config = ask_config()
+        trans(config)
+
+        ask = input("Continue? (Y/N) ")
+        if ask == "Y":
+            run()
+        else:
+            break
+
+run()
