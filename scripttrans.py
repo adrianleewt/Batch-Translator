@@ -15,7 +15,6 @@ import os
 os.system("chcp 950")
 translator = Translator()
 
-
 def ask_input():
     inputting = True
     text = []
@@ -45,6 +44,7 @@ def run():
         translations = ask_config(text)
         trans(translations)
 
+        print("\n")
         ask = input("Continue? (Y/N) ")
         if ask == "Y":
             run()
