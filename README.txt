@@ -6,7 +6,8 @@ connection. It requires a destination language choice, which requires codes.
 The codes for languages can be found below.
 
 Required libraries:
-- googletrans library
+googletrans library
+https://pypi.org/project/googletrans/
 
 ISO Language code support:
 https://ctrlq.org/code/19899-google-translate-languages
