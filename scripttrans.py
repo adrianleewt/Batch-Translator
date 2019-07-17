@@ -14,7 +14,7 @@ import os
 
 os.system("chcp 950")
 translator = Translator()
-active = True
+
 
 def ask_input():
     inputting = True
@@ -27,27 +27,28 @@ def ask_input():
         text.append(temp)
     return text
 
-def ask_config():
+def ask_config(text):
     end = input("Destination Language (Two Letter Code): ")
     translations = translator.translate(text, dest = end)
     return translations
 
-def trans(config):
+def trans(translations):
     print("\n")
-    for config in translations:
-        print(config.origin, ' -> ', config.text)
+    for translation in translations:
+        print(translation.origin, ' -> ', translation.text)
 
 def run():
+    active = True
     while active == True:
 
-        data = ask_input()
-        config = ask_config()
-        trans(config)
+        text = ask_input()
+        translations = ask_config(text)
+        trans(translations)
 
         ask = input("Continue? (Y/N) ")
         if ask == "Y":
             run()
         else:
-            break
+            active = False
 
 run()
