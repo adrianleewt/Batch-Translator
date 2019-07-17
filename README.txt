@@ -2,7 +2,14 @@ Batch Translator
 
 This python script makes the makes the translate process quicker when
 translating a batch of phrases. Run it from the command prompt with an internet
-connection.
+connection. It requires a destination language choice, which requires codes.
+The codes for languages can be found below.
 
 Required libraries:
 - googletrans library
+
+ISO Language code support:
+https://ctrlq.org/code/19899-google-translate-languages
+
+Author: Adrian Lee
+7-17-19

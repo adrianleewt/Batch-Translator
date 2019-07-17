@@ -3,8 +3,8 @@ Batch Translate - Adrian Lee
 
 To use, simply run in command prompt. The program will ask for input. Input each
 of your desired strings, pressing enter after each string. Input blank once you
-have completed data entry. Input your desired language destination in the two
-letter code.
+have completed data entry. Input your desired language destination in the
+code form (eg. zh-CN, en, fr).
 
 """)
 
@@ -40,14 +40,12 @@ def ask_config(text):
             return translations
 
 def trans(translations):
-    print("\n")
+    print("\n" + "=============================================")
     for translation in translations:
         print(translation.origin, ' -> ', translation.text)
+    print("=============================================")
 
 def run():
-    active = True
-    while active == True:
-
         text = ask_input()
         translations = ask_config(text)
         print("Working...")
@@ -59,6 +57,6 @@ def run():
             print("\n")
             run()
         else:
-            active = False
+            print("\n Bye!")
 
 run()
