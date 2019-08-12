@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 pandas = "*"
 googletrans = "*"
+openpyxl = "*"
+pinyin = "*"
 
 [requires]
 python_version = "3.6"
