@@ -9,8 +9,14 @@ Required libraries:
 googletrans library
 https://pypi.org/project/googletrans/
 
+Installation with Pipenv:
+Pipenv install
+
+Pip method:
+pip install googletrans
+
 ISO Language code support:
 https://ctrlq.org/code/19899-google-translate-languages
 
 Author: Adrian Lee
-7-17-19
+Last Updated 8-30-19
