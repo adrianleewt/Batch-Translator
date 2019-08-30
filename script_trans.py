@@ -79,7 +79,6 @@ def get_trans(translations):
 
 def get_pinyin(text):
     pinyins = [str(pinyin.get(item)) for item in text]
-    print("pinyins ", pinyins)
     return pinyins
 
 
