@@ -69,7 +69,7 @@ def get_trans(translations):
     for translation in translations:
         output.append(translation.text)
         try:
-            print(translation.origin + "\n" + translation.text + "\n" + pinyin.get(translation.origin) + "\n")
+            print(translation.origin + "\n" + translation.text + "\n" + pinyin.get(translation.origin,delimiter = " ") + "\n")
         except:
             print(translation.origin + "\n" + translation.text + "\n")
 
@@ -78,7 +78,7 @@ def get_trans(translations):
 
 
 def get_pinyin(text):
-    pinyins = [str(pinyin.get(item)) for item in text]
+    pinyins = [str(pinyin.get(item, delimiter = " ")) for item in text]
     return pinyins
 
 
